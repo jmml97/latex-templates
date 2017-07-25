@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array, multirow, booktabs} % Utilizado para las dos tablas
+\usepackage[none]{hyphenat} % Utilizado para evitar que las palabras se separen al final de la línea
+
+
+%% Fuentes personalizadas para utilizar con XeTeX
+%\usepackage{fontspec}
+%\setmainfont{Minion Pro}
+%\setmonofont[Scale=0.8]{Iosevka}
+
+% Nota al pie de página sin número
+\newcommand{\nnfootnote}[1]{
+    \renewcommand{\thefootnote}{}
+    \footnotetext{\scriptsize#1}
+    \renewcommand{\thefootnote}{\arabic{footnote}}
+}
+
+\begin{document}
+
+\begin{table}[]
+\centering
+\begin{tabular}{@{}m{8cm}l}
+    \multirow{3}{*}{\includegraphics[width=3cm]{./logo-ugr.png}}
+    & \\[2ex]
+    & Inspección de Servicios\\[1.25ex]
+    & Hospital Real, C/ Cuesta del Hospicio, s/n, 18071, Granada\\[1.25ex]
+    & \Large{\textbf{Impreso de presentación de quejas}}\\[1.25ex]
+\end{tabular}
+\end{table}
+
+\begin{tabular}{@{}p{7cm}>{\raggedright\arraybackslash}p{9cm}@{}}
+    \textbf{Apellidos y nombre:} & Tu nombre aquí\\
+    \\[-1em]
+    \textbf{DNI:} & Tu DNI aquí\\
+    \\[-1em]
+    \textbf{Sector de la comunidad universitaria al que pertenece:} & El sector al que perteneces aquí\\
+    \\[-1em]
+    \textbf{Grado, Departamento, Facultad o Centro, Servicio, Asignatura afectada, etc.:} & El órgano afectado aquí\\
+    \\[-1em]
+    \textbf{Domicilio para notificaciones:} & Tu domicilio aquí\\
+    \\[-1em]
+    \textbf{Teléfono de contacto:} & Tu teléfono aquí\\
+    \\[-1em]
+    \textbf{Correo electrónico:} & \texttt{Tu correo aquí}
+\end{tabular}
+
+\vspace{1cm}
+\textbf{Exposición fundamentada y resumida de los hechos:}\\
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet viverra felis, nec mollis felis tristique quis. Aenean et pellentesque mauris, sit amet ultricies turpis. Cras dictum felis lectus, vel lobortis massa vestibulum vitae. In sed turpis eget turpis porttitor aliquet. Nam mattis nisi nec feugiat varius. Morbi dictum suscipit elit, vel blandit libero condimentum nec.\\
+
+\textbf{Acciones realizadas hasta el momento\footnotemark:}\\
+
+Nulla vehicula sagittis lacinia. Interdum et malesuada fames ac ante ipsum primis in faucibus. In tortor justo, porttitor sit amet ante eget, semper varius massa. Sed viverra consequat congue. Nulla eget mattis felis, ac commodo turpis. Nunc ipsum turpis, gravida a sapien sit amet, porttitor finibus leo. Duis condimentum facilisis libero, eleifend porttitor mi molestie sed. Curabitur efficitur dui mi. Sed lacus ex, pretium at tristique sit amet, iaculis nec dolor.\\
+
+\textbf{Solicita al inspector:}\\
+
+Fusce tincidunt tortor leo, a semper est volutpat eu. Suspendisse molestie id dolor ut dapibus. Sed at ligula sed arcu sodales egestas a egestas neque. Phasellus ac dui ac metus tristique sollicitudin sed sit amet purus. Donec nec mauris congue lectus mattis cursus. Maecenas ut est vel lorem tempor imperdiet. Quisque interdum commodo sem sit amet pretium.\\[1em]
+
+Granada, a día de mes de año \hspace{3cm} Firma:
+
+\footnotetext{Adjuntar copia de todas las resoluciones que en su caso se hayan obtenido.}
+
+\nnfootnote{Sus datos personales, aportados en la solicitud y contenidos en la documentación que, en su caso, la acompañe, serán tratados por la UNIVERSIDAD DE GRANADA, con sede en Avda. del Hospicio, s/n, 18071 Granada, con la finalidad de gestionar los asuntos que se planteen. Puede ejercitar sus derechos de acceso, rectificación, cancelación y oposición ante la Secretaría General de la Universidad de Granada, en la dirección anteriormente indicada, mediante solicitud escrita acompañada de copia del DNI. De todo lo cual se informa en cumplimiento del artículo 5 de la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal.}
+
+\end{document}
