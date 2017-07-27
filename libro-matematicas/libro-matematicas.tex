@@ -310,6 +310,27 @@
 \surroundwithmdframed[style=ejemplo-frame]{ejemplo}
 \surroundwithmdframed[style=ejemplo-frame]{sol}
 
+% ---------------------------------------------------------------------------
+% CONFIGURACIÓN DE LA PORTADA
+% ---------------------------------------------------------------------------
+
+\newcommand{\asignatura}{%
+  Asignatura de\\
+  nombre largo\\
+}
+
+\newcommand{\autor}{Autor}
+
+\newcommand{\grado}{Grado en el que se imparte}
+
+\newcommand{\universidad}{Universidad}
+
+\newcommand{\enlaceweb}{ejemplo.github.io}
+
+% ---------------------------------------------------------------------------
+% CONFIGURACIÓN PERSONALIZADA
+% ---------------------------------------------------------------------------
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---------------------------------------------------------------------------
 % COMIENZO DEL DOCUMENTO
@@ -329,10 +350,7 @@
 	\parbox[t]{\textwidth}{
 			\raggedright % Texto alineado a la izquierda
 			\fontsize{50pt}{50pt}\selectfont\sffamily\color{white}{
-			  \textbf{%
-        Asignatura de\\
-			  nombre largo\\
-        }
+			  \textbf{\asignatura}
       }
 	}
 
@@ -342,10 +360,10 @@
 	\parbox[t]{\textwidth}{
 		\raggedright % Texto alineado a la izquierda
 		\sffamily\large\color{white}
-		{\Large Autor}\\[4pt]
-		Grado en el que se imparte\\
-		Universidad\\[4pt]
-		\texttt{ejemplo.github.io}
+		{\Large \autor }\\[4pt]
+		\grado\\
+		\universidad\\[4pt]
+		\texttt{\enlaceweb}
 	}
 
 \end{titlepage}
@@ -380,10 +398,7 @@
 	\parbox[t]{\textwidth}{
 			\raggedright % Texto alineado a la izquierda
 			\fontsize{50pt}{50pt}\selectfont\sffamily\color{500}{
-			  \textbf{%
-        Asignatura de\\
-			  nombre largo\\
-        }
+			  \textbf{\asignatura}
       }
 	}
 
@@ -393,10 +408,10 @@
 	\parbox[t]{\textwidth}{
 		\raggedright % Texto alineado a la izquierda
 		\sffamily\large
-		{\Large Autor}\\[4pt]
-		Grado en el que se imparte\\
-		Universidad\\[4pt]
-		\texttt{ejemplo.github.io}
+		{\Large \autor}\\[4pt]
+		\grado\\
+		\universidad\\[4pt]
+		\texttt{\enlaceweb}
 	}
 
 \end{titlepage}
