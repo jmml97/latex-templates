@@ -114,18 +114,26 @@
 \setlength{\headheight}{14pt}
 
 % ---------------------------------------------------------------------------
-% TÍTULOS DE SECCIONES
+% TÍTULOS DE PARTES Y SECCIONES
 % ---------------------------------------------------------------------------
 
 \usepackage{titlesec}
 
+% Estilo de los títulos de las partes
+\titleformat{\part}[hang]{\Huge\bfseries\sffamily}{\thepart\hspace{20pt}\textcolor{500}{|}\hspace{20pt}}{0pt}{\Huge\bfseries}
+\titlespacing*{\part}{0cm}{-2em}{2em}[0pt]
+
+% Reiniciamos el contador de secciones entre partes (opcional)
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+% Estilo de los títulos de las secciones, subsecciones y subsubsecciones
 \titleformat{\section}
   {\Large\bfseries\sffamily}{\thesection}{1em}{}
 
 \titleformat{\subsection}
-  {\Large\sffamily}{\thesubsection}{1em}{}[
-\vspace{.5em}%
-]
+  {\Large\sffamily}{\thesubsection}{1em}{}[\vspace{.5em}]
 
 \titleformat{\subsubsection}
   {\sffamily}{\thesubsubsection}{1em}{}
@@ -190,24 +198,31 @@
 
 %% ASIGNACIÓN DE LOS ESTILOS
 
-% Teoremas, proposiciones y corolarios.
+% Teoremas, proposiciones y corolarios
 \theoremstyle{theorem-style}
 \newtheorem{nth}{Teorema}[section]
 \newtheorem{nprop}{Proposición}[section]
 \newtheorem{ncor}{Corolario}[section]
 \newtheorem{lema}{Lema}[section]
 
-% Definiciones.
+% Definiciones
 \theoremstyle{definition-style}
 \newtheorem{ndef}{Definición}[section]
 
-% Notas.
+% Notas
 \theoremstyle{remark-style}
 \newtheorem*{nota}{Nota}
 
-% Ejemplos.
+% Ejemplos
 \theoremstyle{example-style}
 \newtheorem{ejemplo}{Ejemplo}[section]
+
+% Ejercicios y solución
+\theoremstyle{definition-style}
+\newtheorem{ejer}{Ejercicio}[section]
+
+\theoremstyle{remark-style}
+\newtheorem*{sol}{Solución}
 
 %% MARCOS DE LOS ESTILOS
 
@@ -248,6 +263,19 @@
 
 \mdfdefinestyle{ndef-frame}{
 	linewidth=2pt, %
+	linecolor= 500, %
+	backgroundcolor= 50,
+	topline=false, %
+	bottomline=false, %
+	rightline=false,%
+	leftmargin=0pt, %
+	innerleftmargin=1em, %
+	innerrightmargin=1em,
+	rightmargin=0pt, %
+}%
+
+\mdfdefinestyle{ejer-frame}{
+	linewidth=2pt, %
 	linecolor= 300, %
 	backgroundcolor= 50,
 	topline=false, %
@@ -265,8 +293,8 @@
 	leftline=false, %
 	rightline=false, %
 	leftmargin=0pt, %
-	innerleftmargin=1.5em, %
-	innerrightmargin=1.5em,
+	innerleftmargin=1.3em, %
+	innerrightmargin=1em,
 	rightmargin=0pt, %
 	innertopmargin=0em,%
 	innerbottommargin=0em, %
@@ -278,7 +306,9 @@
 \surroundwithmdframed[style=nprop-frame]{nprop}
 \surroundwithmdframed[style=nprop-frame]{ncor}
 \surroundwithmdframed[style=ndef-frame]{ndef}
+\surroundwithmdframed[style=ejer-frame]{ejer}
 \surroundwithmdframed[style=ejemplo-frame]{ejemplo}
+\surroundwithmdframed[style=ejemplo-frame]{sol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---------------------------------------------------------------------------
@@ -383,6 +413,8 @@
 % CONTENIDO
 % ---------------------------------------------------------------------------
 
+\part{Parte primera}
+
 \section{Sección}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a nisi id mi dapibus commodo. Nam ac libero ultrices, posuere erat eu, tempor dolor. Curabitur porttitor, nulla at consequat mollis, mi turpis varius elit, vitae eleifend turpis est vel sem. Sed ut vehicula quam. Praesent id sem sed sapien tincidunt iaculis at quis dolor. Integer et magna quis sapien elementum pharetra. Pellentesque porttitor dapibus nibh, eget ullamcorper risus eleifend vitae. Nulla ac nulla nec orci scelerisque eleifend id sit amet arcu. Vivamus sodales, nibh in aliquet fringilla, quam erat tristique diam, quis dignissim justo mauris et lorem.
@@ -415,15 +447,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a nisi id mi dapibus
   Suspendisse maximus hendrerit dui. Sed ac dapibus enim. Phasellus tempor dolor et metus ullamcorper pretium. Morbi varius ac orci ac volutpat. Pellentesque gravida urna risus, ut porta felis mattis vitae. Suspendisse vulputate sagittis mauris, ac bibendum mauris volutpat iaculis. Suspendisse suscipit ac quam ut commodo. Fusce id leo sollicitudin, placerat velit nec, tempor velit. Donec sed dapibus ex. Duis tincidunt sem non velit blandit sollicitudin eget at sem.
 \end{ndef}
 
+\begin{ejemplo}
+  Sed dignissim, purus eu consequat volutpat, lectus nulla ullamcorper tellus, tempus blandit sem purus eget ligula. Cras sapien purus, placerat laoreet eros id, tristique imperdiet est. Sed orci purus, hendrerit finibus orci sed, elementum gravida libero. Sed vitae imperdiet magna, nec bibendum velit. Nunc tincidunt risus eget mi pulvinar, nec rhoncus enim dictum.
+\end{ejemplo}
+
 In ultricies accumsan faucibus. Quisque faucibus mi vel augue cursus, eu cursus neque pulvinar. Praesent eget velit in nulla interdum efficitur at nec turpis. Sed massa velit\footnotemark, consequat ac dui pharetra, sodales sodales quam. In rhoncus turpis ac elementum imperdiet. Etiam ipsum metus, euismod vel viverra eget, gravida eu felis. Nulla facilisi. Sed eget elementum justo. Morbi fermentum sapien vitae erat fermentum blandit quis ut leo. Morbi aliquam libero eu odio egestas, et condimentum sapien dignissim. Morbi quis lacinia tellus. Sed mattis suscipit feugiat.
 
 \footnotetext{Sed lobortis eu ante nec commodo. Cras ut feugiat mauris. Nullam mollis lacus nisi, eu tristique eros sagittis ac. Nullam mattis tincidunt maximus. Integer quis diam justo. Pellentesque in pharetra nisi. Praesent at interdum dolor. Suspendisse nunc nulla, lobortis vitae libero non, consequat pretium mi. Sed sollicitudin}
 
-Etiam non sapien magna. In rhoncus suscipit dui a vulputate. Duis vitae purus erat. Aliquam non dui scelerisque, lobortis eros quis, mattis nisi. Sed ultrices, sapien sit amet semper tempus, purus purus blandit tellus, vitae finibus lorem nulla id velit. Aenean non orci justo. Proin ut dolor ullamcorper, efficitur diam a, fermentum odio. Nulla consequat hendrerit nibh, in consectetur diam consectetur a. Nunc in est massa. Proin a congue mi. Cras nec enim nec ante rhoncus feugiat non sollicitudin dolor.
+\begin{ejer}
+  Etiam non sapien magna. In rhoncus suscipit dui a vulputate. Duis vitae purus erat. Aliquam non dui scelerisque, lobortis eros quis, mattis nisi. Sed ultrices, sapien sit amet semper tempus, purus purus blandit tellus, vitae finibus lorem nulla id velit. Aenean non orci justo.
+\end{ejer}
+
+\begin{sol}
+  Proin ut dolor ullamcorper, efficitur diam a, fermentum odio. Nulla consequat hendrerit nibh, in consectetur diam consectetur a. Nunc in est massa. Proin a congue mi. Cras nec enim nec ante rhoncus feugiat non sollicitudin dolor.
+\end{sol}
 
 Sed lobortis eu ante nec commodo. Cras ut feugiat mauris. Nullam mollis lacus nisi, eu tristique eros sagittis ac. Nullam mattis tincidunt maximus. Integer quis diam justo. Pellentesque in pharetra nisi. Praesent at interdum dolor. Suspendisse nunc nulla, lobortis vitae libero non, consequat pretium mi. Sed sollicitudin, erat at lacinia venenatis, lectus magna tincidunt justo, id condimentum tellus nulla non lectus. Vestibulum sem libero, ultrices vel finibus sit amet, lobortis vitae augue. Nunc sit amet diam egestas, aliquet augue vel, rutrum erat. Nunc scelerisque ultricies nulla, sit amet euismod quam lobortis eu.
 
-Sed dignissim, purus eu consequat volutpat, lectus nulla ullamcorper tellus, tempus blandit sem purus eget ligula. Cras sapien purus, placerat laoreet eros id, tristique imperdiet est. Sed orci purus, hendrerit finibus orci sed, elementum gravida libero. Sed vitae imperdiet magna, nec bibendum velit. Nunc tincidunt risus eget mi pulvinar, nec rhoncus enim dictum. Etiam in enim in lectus tempor elementum sed nec arcu. Cras nec nisl non turpis molestie vulputate eu at eros. Nulla facilisis molestie elit eget varius. Aenean vel ex euismod, scelerisque purus nec, porta sem. Pellentesque ullamcorper, augue sit amet fringilla dignissim, nulla justo elementum tellus, id semper metus lacus non diam.
+Etiam in enim in lectus tempor elementum sed nec arcu. Cras nec nisl non turpis molestie vulputate eu at eros. Nulla facilisis molestie elit eget varius. Aenean vel ex euismod, scelerisque purus nec, porta sem. Pellentesque ullamcorper, augue sit amet fringilla dignissim, nulla justo elementum tellus, id semper metus lacus non diam.
 
 Ut auctor fermentum ligula. In non diam commodo, efficitur enim vel, pretium tortor. Suspendisse mollis elit quis leo vehicula posuere. Integer imperdiet malesuada diam non vestibulum. Aliquam felis tortor, fringilla in faucibus ac, malesuada in metus. Vestibulum ullamcorper egestas nisi vel ultrices. Pellentesque euismod arcu eu nisi congue, a accumsan metus sollicitudin. Aenean ornare cursus feugiat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus et gravida neque, a tristique ex. Curabitur in eros eu urna suscipit aliquam nec euismod mauris. Nam sollicitudin hendrerit accumsan. Nunc semper lorem risus, at eleifend turpis mollis ac.
 
