@@ -1,0 +1,161 @@
+\documentclass[spanish]{beamer}
+
+\usepackage[es-tabla]{babel}
+
+\usepackage{graphics,tikz}
+\usetikzlibrary{automata, positioning, arrows}
+
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.16}
+
+\usepackage{adjustbox}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+%%% FUENTES
+
+\usepackage[no-math]{fontspec}
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+\usepackage[math-style=TeX]{unicode-math}
+\setmathfont{Libertinus Math}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+%%% COLORES
+
+\definecolor{background}{HTML}{F5F5F4}
+\definecolor{foreground}{HTML}{3F3F3F}
+\definecolor{strings}{HTML}{ED982C}
+\definecolor{operators}{HTML}{CF4818}
+\definecolor{identifiers}{HTML}{9A71BA}
+\definecolor{keywords}{HTML}{5486C8}
+\definecolor{numbers}{HTML}{80951D}
+\definecolor{comments}{HTML}{AFAFAF}
+
+%%% LISTINGS
+
+\usepackage{listings}
+
+\lstset{
+  numbers=left,
+  belowcaptionskip=1\baselineskip,
+  basicstyle=\scriptsize\ttfamily\color{foreground},
+  keywordstyle=\color{keywords},
+  commentstyle=\color{comments},
+  stringstyle=\color{strings},
+  identifierstyle=\color{identifiers},
+  numberstyle=\color{foreground},
+  xleftmargin=2em,
+  framexleftmargin=1.5em,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2
+}
+
+% Bibliografía
+
+\usepackage[sorting=none, style=apa, isbn=true]{biblatex}
+\DefineBibliographyStrings{spanish}{
+  urlseen = {Consultado},
+  retrieved = {Consultado},
+}
+\addbibresource{bibliografia.bib}
+
+%%% AJUSTES DE BEAMER
+
+%\usefonttheme{professionalfonts}
+
+\setlength{\leftmargini}{0cm}
+\setlength{\leftmarginii}{2em}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamerfont{title}{series=\bfseries}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamercolor{frametitle}{fg=foreground}
+\setbeamerfont{framesubtitle}{size=\normalfont\small}
+\setbeamercolor{framesubtitle}{fg=foreground}
+
+\setbeamercolor{background canvas}{bg=background}
+
+\setbeamercolor{normal text}{fg=foreground}
+\setbeamercolor{alerted text}{fg=foreground}
+\setbeamercolor{block title}{fg=foreground}
+\setbeamercolor{alerted text}{fg=foreground}
+
+\setbeamercolor{itemize item}{fg=foreground}
+\setbeamercolor{enumerate item}{fg=foreground}
+
+\setbeamertemplate{itemize items}[circle]
+\setitemize{
+  label=\usebeamerfont*{itemize item}
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}
+}
+
+\setbeamercolor*{title}{fg=foreground}
+\setbeamercolor{qed symbol}{fg=foreground}
+
+\usebeamercolor[fg]{normal text}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamerfont{page number in head/foot}{size=\small}
+
+\setbeamercolor{section in toc}{fg=foreground}
+\setbeamerfont{section in toc}{series=\bfseries}
+
+\setbeamercolor{caption name}{fg=foreground}
+\setbeamerfont{caption name}{series=\bfseries}
+
+\setbeamercolor{bibliography entry note}{fg=foreground}
+\setbeamercolor{bibliography entry author}{fg=foreground!40!black}
+
+\hypersetup{
+  colorlinks=true,
+  citecolor=numbers,
+  urlcolor=operators,
+  linkcolor=foreground
+}
+
+%%% INFORMACIÓN DEL DOCUMENTO
+
+\title{Título}
+\subtitle{Asignatura}
+\author{
+  Autor 1 \texorpdfstring{\\}{}
+  Autor 2 \texorpdfstring{\\}{}
+  Autor 3
+}
+\institute{\normalsize Universidad}
+\date{Fecha\texorpdfstring{\\}{} \small Curso}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Índice}
+  \tableofcontents
+\end{frame}
+
+\section{Lorem ipsum}
+\begin{frame}{Lorem ipsum}
+  \begin{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Consectetur purus ut faucibus pulvinar elementum integer enim.
+    \item Donec et odio pellentesque diam volutpat commodo sed egestas egestas.
+    \item Id consectetur purus ut faucibus pulvinar elementum.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t,allowframebreaks]{Referencias}
+  \printbibliography[heading=none]
+\end{frame}
+
+\end{document}
